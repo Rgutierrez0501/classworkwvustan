@@ -11,7 +11,7 @@ p{
     border: 2px solid powderblue;
     color:green;
     font-family: Arial;
-    font-size: 300%;
+    font-size: 100%;
     padding: 30px;
     margin: 50px;
 }
@@ -30,4 +30,10 @@ p{
 .center{
     text-align: center;
     color:brown;
+}
+
+.para{
+    color:blueviolet;
+    font-weight: bold;
+    text-align: center;
 }
