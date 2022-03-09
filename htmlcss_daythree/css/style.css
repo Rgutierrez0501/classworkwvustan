@@ -1,0 +1,33 @@
+body{
+    background-color: beige;
+}
+h1{
+    color:red;
+    font-family: verdana;
+    font-size: 400%;
+}
+
+p{
+    border: 2px solid powderblue;
+    color:green;
+    font-family: Arial;
+    font-size: 300%;
+    padding: 30px;
+    margin: 50px;
+}
+#para1{
+    color:red;
+    font-weight: bold;
+    text-align: center;
+}
+
+#para2{
+    color:blue;
+    font-weight: italic;
+    text-align: center;
+}
+
+.center{
+    text-align: center;
+    color:brown;
+}
