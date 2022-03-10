@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Demo HTml and JS
+        </title>
+    </head>
+        
+    <body>
+        <p>Hello Everyone </p>
+        <p id="demo"></p>
+        <p id="id1"></p>
+        <p id="demo1"></p>
+        <p>************************************</p>
+
+        <p id="demo2"></p>
+        <button type="button" onclick="display()">Click to display</button>
+        <script src ="./js/firstJS.js"></script>
+       <script>
+           document.getElementById("demo").innerHTML="Java Script using browser.";
+           //variable a,b,c 
+           var a,b,c;
+           a=5;// a variable is referring to a number whose value is 5
+           b=15;// b variable is referring to a number whose value is 15
+           c=a+b; // Java Script Statement -- we are writting the logic to add two numbers
+           document.getElementById("id1").innerHTML="The sum of two numbers is ----"+c;
+       </script> 
+    </body>
+</html>
