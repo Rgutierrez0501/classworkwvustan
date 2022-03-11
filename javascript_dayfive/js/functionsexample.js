@@ -58,4 +58,74 @@ function greetMessage(){
 greetMessage();
 
 console.log("Outside function ---  "+message);
-console.log("Printing localMessage ---"+localMessage);
+//console.log("Printing localMessage ---"+localMessage);
+/**
+ * Hoisting is a behaviour in JS in which a function or variable can be used before declaration
+ *  
+ */
+
+//text="Week 1 Friday";
+//console.log(text);//undefined -Uncaught ReferenceError: Cannot access 'text' before initialization
+//let text;//undefined
+let text;//undefined 
+text="Week 1 Friday";
+console.log(text);
+//Function Hoisting - It can be declared befor calling it
+displayInfo();
+function displayInfo(){
+    console.log("I am display info method");
+}
+/**
+ * When a function is used as an expression, an error occurs because only declarations are hoisted.
+ */
+//dispInfoFuncExpress();
+//let dispInfoFuncExpress= ()=>console.log("I am using arrow function");
+
+//Recursive function- a fucntion calling itself
+function factorial(number){
+        if(number === 0){
+            return 1;
+        }else{
+            return number * factorial(number -1);
+        }
+
+}
+
+let num = 4;
+if(num>0){
+    let result = factorial(num);
+    console.log('The factorial of'+ num +" is "+ result);
+    console.log(`The factorial of ${num} id ${result}`); 
+
+}
+
+//Closure in JavaScript
+function addFunction(){ 
+    let i=4; 
+    return 4*4;
+}
+//Closure is a function that preserves the outer scope in its inner scope
+function greetEveryone(){//Outer function
+    let greeting ="Happy Weekend";
+    //Inner function
+    function sayBye(){ // sayBye function is a closure
+        console.log(greeting);
+    }
+    //sayBye();
+    return sayBye;// it returns sayBye function object
+}
+
+let bye =greetEveryone(); //bye is reference of sayBye function
+bye();
+
+//Callback is a function passed as an argument to another function
+//displayInformation is a callback function
+function displayInformation(value){
+    console.log("Inside displayInformation --"+value);
+}
+//displayInformation is passed as an argument
+function useCallBackFunction(displayInformation){
+    displayInformation("I am using call back function");   
+}
+//Usage of callback ---Where one function has to wait for another function 
+useCallBackFunction(displayInformation);
