@@ -98,3 +98,75 @@ let fruit='';// its an empty string
 
 //document.getElementById('id22').innerHTML="value of p and fruit---"+p+"---"+fruit;
 document.getElementById('id22').innerHTML="value of fruit---"+fruit;
+//Using new keyword you can create an array in JS
+let decimalNumbers =new Array(15.15,16.50,10.20);
+let text='<ul>';
+for(let i=0;i<decimalNumbers.length;i++){
+    text += '<li>'+decimalNumbers[i]+'</li>';
+}
+
+console.log(text);
+document.getElementById('id23').innerHTML=text;
+//Use of forEach in an Array
+let text2 ='<ul>';
+
+fruits.forEach(fruitfunction);
+text2+='</ul';
+
+function fruitfunction(value){
+    text2 += '<li>'+value+'</li>';
+}
+document.getElementById('id24').innerHTML=text2;
+
+for(let index=0;index<fruits.length;index++){
+    console.log(fruits[index]);
+}
+
+/**
+ * Array.map()--
+ *      1 . It creates a new array by performing a function on each array element.
+ *      2 . It does not excute the function for array elements without values.
+ *      3 . It does not change the original array
+ * Array.filter() --- filter out the elements from arrays based on some condition
+ * 
+ * Array.reduce() --- it runs a function on each array element to produce (reduce it to) a single value.
+ *  it works from left-to-right in the array
+ * 
+ */
+
+let numbers=[5,2,6,7,8,9,10,11];
+let txt ='';
+numbers.forEach(myFunction);
+function myFunction(value1){
+    txt=txt+value1+'<br>';
+}
+
+document.getElementById('id25').innerHTML=txt;
+console.log("value of txt---"+txt);
+
+//Array.map()
+let nums = numbers.map(functionForMap); 
+
+function functionForMap(value){
+    return value*2;
+}
+console.log("map operation ---"+nums);
+//Array.filter()
+//let numbers=[5,2,6,7,8,9,10,11];
+let filteredNumbers = numbers.filter(functionForFilter);
+function functionForFilter(value){return value<8;}
+console.log("filteredNumbers---"+filteredNumbers);
+
+let sumOfNumbers = numbers.reduce(functionForReduce);
+function functionForReduce(total,value){
+    return total+value;
+}
+console.log("reduced value ----"+sumOfNumbers)
+
+let poulationAge=[16,14,25,45,10,50];
+let anyEligibleVoters=poulationAge.find(functionToFindVoters);
+
+function functionToFindVoters(value){
+    return value>18;
+}
+console.log("eligible to vote ---"+anyEligibleVoters);
