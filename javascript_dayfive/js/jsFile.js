@@ -41,3 +41,60 @@ result =4;
 d= 2;
 result >>= d; // equivalent result = result >> d; result =  >> 15=
 document.getElementById('id8').innerHTML="right shift to  assignment operator ---"+result;
+
+//Data types
+var num = 25; //number
+var firstName = "George"; //String -- sequence of characters
+var strObject = {
+    lastName: "Gates",firstName:"Bill"
+};
+
+document.getElementById('id9').innerHTML="type of variable num --->"+typeof(num);
+document.getElementById('id10').innerHTML="type of variable firstName --->"+typeof(firstName);
+document.getElementById('id11').innerHTML="type of variable strObject --->"+typeof(strObject);
+document.getElementById('id12').innerHTML="value of strObject properties ----"+strObject.lastName +"  --- "+strObject.firstName;
+document.getElementById('id13').innerHTML="value of strObject---"+strObject;
+//var numberwithchar=25A;
+
+//Declartation of the variable, JavaScript has dynamic types
+let y; //Variable without a value is undefined in JS
+document.getElementById('id14').innerHTML="value of y ---"+y;
+y=16; //initialized our variable y with 16
+document.getElementById('id15').innerHTML="value of y after initialization---"+y+" and type of y is "+typeof(y);
+y="Vladimir Putin";
+
+document.getElementById('id16').innerHTML="value of y is---"+y+" and type of y is "+typeof(y);
+
+let str1 = "Revature";
+let str2 = "Revature is offering very good oppurtunites";
+let str3 = "Wish you all happy leraning";
+
+document.getElementById('id17').innerHTML=str1+" ... "+str2+". "+str3+" !";
+
+//JS has only one type of numbers i.e. number
+let y1 = 15.50;
+let y2 = 15;
+document.getElementById('id18').innerHTML="value of variable y1 and y2 is ---"+y1+" "+y2+"---"+typeof(y1)+"---"+typeof(y2);
+
+//Boolean data types which will have two values true or false
+let l=15;
+let m=15;
+let n=16;
+document.getElementById('id19').innerHTML="comparison of ---(l==m) --->"+(l==m)+"comparison of ---(l==n)  --->"+(l==n);
+
+
+//Javascripts Arrays
+//Arrays items are separated by commas
+//Array indexes are zero based
+//             0    ,  1    ,  2    , 3         ,  4
+let fruits =["Mango","Apple","Kiwi","Strawberry","Banana"]; //length of an array minus 1 is last index position
+let evenNumbers=[2,4,6,8,10,12];
+document.getElementById('id20').innerHTML="fruits at index postion ---2  "+fruits[2]+"---"+typeof(fruits);
+let mixdataInArray=[2,4,"Apple",5.5,strObject];
+
+document.getElementById('id21').innerHTML=mixdataInArray[4].firstName;
+//let varP; //undefined
+let fruit='';// its an empty string
+
+//document.getElementById('id22').innerHTML="value of p and fruit---"+p+"---"+fruit;
+document.getElementById('id22').innerHTML="value of fruit---"+fruit;
