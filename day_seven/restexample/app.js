@@ -1,3 +1,10 @@
+/**
+ * 1. create folder or directory with proper name 
+ * 2. npm init -y
+ * 3. npm install express
+ * 4. npm install body-parser
+ * 5. Run the js file using "node app.js"
+ */
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
