@@ -1,12 +1,12 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
-const port = 3000
-// create application/json parser
-var jsonParser = bodyParser.json()
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const port = 3000;
 
-// create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended:true
+}));  
 
 //http://localhost:3000
 app.get('/', (req, res) => {
@@ -32,9 +32,10 @@ app.get('/info', (req, res) => {
     res.send('I am handling http request get method with url /info')
   })
 //http://localhost:3000/postInfo
-app.post("/postInfo",urlencodedParser,(req,res) =>{
-    console.log(req.body.greetings);
-    res.send("Post request")
+app.post("/postInfo",(req,res) =>{
+    console.log("---"+req);
+    console.log(req.body);
+    res.send("Post request---"+req.body.greetings);
 })
 
 app.listen(port, () => {
