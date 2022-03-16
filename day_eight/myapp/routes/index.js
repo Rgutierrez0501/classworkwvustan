@@ -29,6 +29,10 @@ router.get('/', function(req, res, next) {
 
 //http://localhost:3000/usingHtml
 router.get('/usingHtml',function(req,res) {
-  res.sendFile(path.join(__dirname+'/index.html'));
+  res.sendFile(path.join(__dirname+'/index.html')); // From express js we are sending index.html file to the browser
+});
+//http://localhost:3000/home
+router.get('/home',(req,res)=>{
+  res.render('home',{title: 'Home Page'});
 });
 module.exports = router;
