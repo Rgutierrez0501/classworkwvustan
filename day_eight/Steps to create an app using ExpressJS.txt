@@ -1,0 +1,18 @@
+Steps to create an app using Express Generator:---
+1. First create an empty directory or folder
+	mkdir  expressapp
+2. Change directory 
+	cd expressapp
+3. Run below command to generator appliction skeleton
+	npm  install -g express-generator
+4. Run express
+	express
+5. Create an Express app named myapp. The app will be created in a folder myapp in the current working
+   directory and the view engine will be set to Pug
+	express --view=pug myapp
+
+6. Install dependecies (node_modules folder will be created and this folder contains all dependent libraries)
+	cd myapp
+	npm install        
+
+7. npm start	
