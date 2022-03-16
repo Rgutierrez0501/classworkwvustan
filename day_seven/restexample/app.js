@@ -8,7 +8,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
@@ -88,6 +88,12 @@ app.route('/book')
       res.send('Removed a book')
     })
 
+
+
+app.use((req, res, next) => {
+  console.log('Time:', Date.now())
+  next()
+})
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
