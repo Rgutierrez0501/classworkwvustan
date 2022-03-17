@@ -32,6 +32,10 @@ app.get('/home',(req,res)=>{
     res.sendFile(path.join(__dirname+'/views/index.html')); // From express js we are sending index.html file to the browser
   });
 
+
+  app.get('/login',(req,res)=>{
+    res.render('login',{title: 'Login Page'});
+  });
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
   })
