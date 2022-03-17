@@ -18,6 +18,8 @@ app.get('/',(req,res)=>{
 app.get('/users',queries.getUsers);
 //http://localhost:3001/users/2
 app.get('/users/:id',queries.getUserById);
+//Post http://localhost:3001/users
+app.post('/users',queries.createUser);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

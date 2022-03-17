@@ -8,7 +8,6 @@ const pool = new Pool({
     port:5432
 });
 
-
 //Get all users
 const getUsers =(req,res)=>{
     pool.query('SELECT * FROM users ORDER BY id ASC',(error,results)=>{
@@ -31,8 +30,19 @@ const getUserById = (req,res)=>{
         res.status(200).json(results.rows);
     })
 }
-
+//Post- create a new user in DB
+const createUser = (req,res)=>{
+    const {id,name,email} = req.body;
+    pool.query('INSERT INTO users (id,name,email) VALUES ($1,$2,$3)',[id,name,email],(error,results)=>{ 
+        if(error) {
+            throw error
+        }
+        console.log("Result value ---",results);
+        res.status(201).send(`Number of user added successfully is --:${results.rowCount}`)
+    })
+}
 module.exports={
     getUsers,
-    getUserById
+    getUserById,
+    createUser
 }
