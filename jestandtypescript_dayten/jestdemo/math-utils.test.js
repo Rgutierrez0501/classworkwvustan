@@ -1,15 +1,23 @@
 const {sum,positive,negative}= require('./math-utils');
+/**
+ * beforeAll function is part of a test setup.
+ * It runs a function before any of the tests in this file run.
+ * If the function returns a promise or is a generator, Jest waits for 
+ * that promise to resolve befor running tests.
+ */
 
 let vals;
 let sum_of_vals;
 let pos_vals;
 let neg_vals;
-//Using beforAll function of jest we are intializing the test data befor the tests are executed
+//Using beforAll function of jest we are intializing the test data before 
+//the tests are executed
 beforeAll(()=>{
     pos_vals=[2,1,3];
     neg_vals=[-2,-1,-1];
-    vals=pos_vals.concat(neg_vals);
-    sum_of_vals=vals.reduce((x,y)=>x+y,0);
+    vals=pos_vals.concat(neg_vals);//[2,1,3,-2,-1,-1]
+    console.log('Value of vals -----',vals);
+    sum_of_vals=vals.reduce((x,y)=>x+y,0);//2
 })
 
 //test function
