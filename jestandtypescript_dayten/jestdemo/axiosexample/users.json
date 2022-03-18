@@ -29,6 +29,12 @@
             "first_name": "Roger",
             "last_name": "Bacon",
             "email": "rogerbacon12@yahoo.com"
+        },
+        {
+            "id": 6,
+            "first_name": "Joshua",
+            "last_name": "Burkiett",
+            "email": "joshuaburkiett@yahoo.com"
         }
     ]
   }

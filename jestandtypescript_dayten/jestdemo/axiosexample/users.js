@@ -1,5 +1,5 @@
 /**
- * This module retrieves data with axios. 
+ * This module retrieves data with axios from a json server in this example. 
  * We will test this module
  */
 const axios = require('axios');

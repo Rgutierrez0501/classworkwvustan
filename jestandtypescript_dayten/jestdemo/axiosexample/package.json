@@ -1,0 +1,17 @@
+{
+  "name": "axiosexample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "users-app.js",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "jest": "^27.5.1",
+    "json-server": "^0.17.0"
+  }
+}
