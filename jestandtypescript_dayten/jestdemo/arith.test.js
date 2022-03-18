@@ -5,3 +5,7 @@ test('2+3=5',()=>{
     //We are testing that the add function returns correct answer for sample data
     expect(add(2,3)).toBe(5);
 })
+
+test('3-2=1',()=>{
+     expect(sub(3,2)).toBe(1);
+})
