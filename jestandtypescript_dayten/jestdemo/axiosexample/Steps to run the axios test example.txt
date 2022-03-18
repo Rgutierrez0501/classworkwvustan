@@ -1,0 +1,8 @@
+//Below one is to run json server which send json data to the requested application
+jsonserver --path ./users.json
+
+// Start the application using node this application will get json data from json server
+
+node users-app.js
+// Run the unit test case for users.js which contains the logic to retrieve data from server using axios
+npm test users.test.js
