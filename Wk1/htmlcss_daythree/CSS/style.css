@@ -1,0 +1,37 @@
+
+body{
+    background-color: rgb(211, 180, 122);
+}
+h3 {
+    color: black;
+    font-family: verdana;
+    text-align: center;
+    font-size: 200%;
+}
+
+
+#para1{
+    color:red;
+    font-weight: 100;
+    text-align: center;
+}
+
+#para2{
+    color:blue;
+    font-weight: italic;
+    font-align: center;
+}
+.flex-container{
+    display: flex;
+    background-color:blueviolet;
+    }
+.flex-container > div{
+    margin:10px;
+    padding: 20px;
+    font-size: 30px;
+    background-color:aqua;
+    }
+.container {
+    padding: 10px
+}
+  
