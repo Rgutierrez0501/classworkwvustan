@@ -1,9 +1,11 @@
-const { sum, positive, negative } = require('./math-utils');
+const { sum, positive, negative } = require('./maths-util');
 const { isPalindrome, isAnagram } = require('./string-utils');
 /** With describe, we have created two isolated test groups for 
  * string and math utilities.
  * For instance, the beforAll is only applied for the math utilities
 */
+
+// test for math utilities 
 describe('testing math utilities', () => {
     let vals;
     let sum_of_vals;
@@ -30,6 +32,7 @@ describe('testing math utilities', () => {
     });
 });
 
+// test for string utilities 
 describe('testing string utilities', () => {
 
     test.each(["racecar", "radar", "level", "refer", "deified", "civic"])(
