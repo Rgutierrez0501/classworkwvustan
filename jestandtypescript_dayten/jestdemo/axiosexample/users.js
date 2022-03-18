@@ -7,7 +7,8 @@ const axios = require('axios');
 class Users {
 
      static async all() {
-        let res = await axios.get('http://localhost:3000/users');
+       // making an call to an api 
+        let res = await axios.get('http://localhost:3001/users');
         return res;
       }
 }
