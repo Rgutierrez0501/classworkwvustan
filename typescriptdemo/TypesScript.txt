@@ -1,0 +1,19 @@
+What is Typescript?
+1. Typescript is more than a JS 
+
+2. Typescripts adds additional syntax to JS to support a tighter integration 
+with your editor.
+3. Catch erros early in your editor
+4. TypeScript code converts to JS which runs anywhere JS runs: In a browser, 
+	on NODejs and in your app
+
+5. TS understands JS and uses type inference to give you great tooling without 
+	additional code
+
+TypeScript is developed by Microsoft
+Key Differences:
+JavaScript is a scripting language which helps you create interactive web pages whereas Typescript is a superset of JavaScript.
+Typescript code needs to be compiled while JavaScript code doesn’t need to compile.
+Comparing TypeScript and JS, Typescript supports a feature of prototyping while JavaScript doesn’t support this feature.
+Typescript uses concepts like types and interfaces to describe data being used whereas JavaScript has no such concept.
+Typescript is a powerful type system, including generics & JS features for large size project whereas JavaScript is an ideal option for small size project.
