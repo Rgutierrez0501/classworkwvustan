@@ -1,0 +1,24 @@
+{
+  "name": "classworkwvustan",
+  "version": "1.0.0",
+  "description": "220307 - WVU-STAN - Java React CX Studios",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prabhat1510/classworkwvustan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prabhat1510/classworkwvustan/issues"
+  },
+  "homepage": "https://github.com/prabhat1510/classworkwvustan#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "jest": "^27.5.1"
+  }
+}
