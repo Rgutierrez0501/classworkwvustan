@@ -1,4 +1,4 @@
-//Define the shape of the product objext using an interface
+//Define the shape of the product object using an interface
 interface Product{
     id: number;
     name: string,
