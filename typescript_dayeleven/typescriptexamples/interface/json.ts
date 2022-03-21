@@ -1,3 +1,5 @@
-interface JSON{
-    toJSON(): string
+interface Json{
+    save(): string
 }
+
+export type {Json};
