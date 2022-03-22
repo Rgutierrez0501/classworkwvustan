@@ -9,12 +9,21 @@ import './index.css';
 import Flower from './component/Flower';
 import Employee from './component/Employee';
 import Student from './component/Student';
+import Car  from './component/Car';
+import Message from './component/Message';
+import FootBall from './component/EventsExample';
+import FootBallMsg from './component/FootBall';
+
 // Using render method we are rendering the component
 ReactDOM.render(
   <React.StrictMode>
-    <Employee />
+   <Employee />
    <Flower color ="white" name ="lily"/>
    <Student />
+   <Car />
+   <Message greetings="Good Afternoon every one"/>
+   <FootBall />
+   <FootBallMsg />
 
   </React.StrictMode>,
   document.getElementById('root')
