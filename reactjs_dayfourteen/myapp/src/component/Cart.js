@@ -1,5 +1,6 @@
 import Product from "./Product";
 function Cart(){
+    //Hard Coded value
     const products = [
             {sku:1,description:'iPhone 13 Pro Max',quantity:2},
             {sku:2,description:'iPhone 13 Pro Max charger ',quantity:1},
