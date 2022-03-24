@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../src/styles.css";
+import { Link,Outlet } from "react-router-dom";
 
 function Login() {
     /**
@@ -86,6 +87,14 @@ function Login() {
         </div>
         <div className="button-container">
           <input type="submit" />
+        </div>
+        <div>
+            <nav>
+           
+                    <Link to="/"> Home</Link>
+           
+            </nav>
+            <Outlet />
         </div>
       </form>
     </div>
