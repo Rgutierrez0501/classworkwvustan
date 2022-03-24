@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import './index.css';
+import App from './App';
 
 import BookData from './component/BookData';
 import BookDataWithKeys from './component/BookDataWithKeys';
@@ -11,6 +12,7 @@ import Login from './component/Login';
    // <BookDataWithKeys />,
    //<Cart />, 
    <Login />,
+    //<App />,
    document.getElementById('root')
   );
   
