@@ -38,6 +38,18 @@ app.get('/login/:uName/:passcode',(req,res)=>{
     })
 });
 
+
+app.get('/userByName/:uName',(req,res)=>{
+
+    const user_name =req.params.uName;
+    poolconn.query('SELECT * FROM users WHERE username=$1',[user_name],(error,results)=>{
+        if(error){
+            throw error;
+        }
+        res.status(200).json(results.rows);
+    })
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
-  })
+})

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link,Outlet } from "react-router-dom";
 import "../../src/styles.css";
+import axios from 'axios';
 function Login() {
     /**
      * 1. Declare React States for error messages and isSubmitted
@@ -44,7 +45,15 @@ function Login() {
     var { uname, pass } = document.forms[0];
 
     // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
+   // const userData = database.find((user) => user.username === uname.value);
+  // const userData;
+  console.log('Results before call ------'+uname+'-----'+pass);
+
+    const userData =
+   axios.get("http://localhost:3001/userByName/:uName",
+          { params: {uName: uname}}
+      )
+    console.log("Results after call ------",userData.data)
 
     // Compare user info
     if (userData) {
