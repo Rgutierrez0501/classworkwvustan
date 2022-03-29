@@ -50,7 +50,7 @@ app.get('/login/:uName/:passcode',(req,res)=>{
     })
 });
 
-
+//http://localhost:3001/userByName/user1
 app.get('/userByName/:uName',(req,res)=>{
 
     const user_name =req.params.uName;

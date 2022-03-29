@@ -36,21 +36,20 @@ function Login() {
     let userData = null;
     let roleData = null;
     // Find user login info
-   // const userData = database.find((user) => user.username === uname.value);
-
+  
   const baseURL =`http://localhost:3001/userByName/${uname.value}`;
-  console.log('Results before call ------'+uname.value+'-----'+pass.value);
+  //console.log('Results before call ------'+uname.value+'-----'+pass.value);
 
   axios.get(baseURL).then((response) => {
         userData=response.data[0];
-        console.log(userData);
+        //console.log(userData);
     // Compare user info
     if (userData) {
       if (userData.password !== pass.value) {
         // Invalid password
         setErrorMessages({ name: "pass", message: errors.pass });
       } else {
-          console.log('Checking role');
+          //console.log('Checking role');
           //Check role
           axios.get(`http://localhost:3001/roleById/${userData.roleid}`).then((res)=>{
                 roleData= res.data[0];
@@ -59,7 +58,6 @@ function Login() {
                         setIsAdminUser(true);
                     }
                 }
-                console.log(roleData);
                 
           })
          
@@ -71,6 +69,8 @@ function Login() {
     }
     });
   };
+
+  
   
 
   // Generate JSX code for error message
