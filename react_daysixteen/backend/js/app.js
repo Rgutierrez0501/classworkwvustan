@@ -74,14 +74,22 @@ app.get('/roleById/:roleid',(req,res)=>{
 
 //http://localhost:3001/registeruser
 app.post('/registeruser',(req,res)=>{
-    let {id,firstname,lastname,email,mobile,address} = req.body;
-    poolconn.query('INSERT INTO user_details (id,firstname,lastname,email,mobile,address) VALUES ($1, $2,$3,$4,$5,$6)', [id,firstname,lastname,email,mobile,address], (error, results) => {
+    let {username,password,firstname,lastname,email,mobile,address} = req.body;
+    poolconn.query('INSERT INTO user_details (firstname,lastname,email,mobile,address) VALUES ($1, $2,$3,$4,$5,$6) RETURNING uniqueid', 
+    [firstname,lastname,email,mobile,address], (error, results) => {
         if(error){
             throw error;
         }
+        let id = results.rows[0].uniqueid;
+        poolconn.query('INSERT INTO users (userid,username,password,roleid) VALUES ($1, $2,$3,$4)', 
+        [id,username,password,2], (error, results) => {
+            if(error){
+                throw error;
+            }
         res.status(201).send(`User added with ID: ${id}`);
-    })
-});
+    });
+    });   
+})
 
 
 

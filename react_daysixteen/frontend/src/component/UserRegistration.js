@@ -20,10 +20,30 @@ function UserRegistration() {
     //Prevent page reload
     event.preventDefault();
 
-    var { firstname, lastname,email,mobile,address } = document.forms[0];
-    // axios.post(url).then((response)=>{}
+    var { username, password,firstname, lastname,email,mobile,address } = document.forms[0];
 
+    let userDetails ={
+        username: username.value,
+        password: password.value,
+        firstname: firstname.value,
+        lastname : lastname.value,
+        email : email.value,
+        mobile : mobile.value,
+        address : address.value
 
+    };
+    //TODO -- URL -- http://localhost:3001/registeruser and pass data in request body
+    axios.get(`http://localhost:3001/userByName/${username.value}`).then((response) => {
+       let  userData=response.data;
+       if(userData){
+           setErrorMessages({ name :"username", message: errors.username});
+       }else{
+        axios.post(`http://localhost:3001/registeruser`,userDetails).then((response)=>{
+            setIsSubmitted(true);
+        })
+       }
+    });
+    
   };
 
   const renderErrorMessage = (name) =>
@@ -36,6 +56,16 @@ function UserRegistration() {
     const renderForm = (
         <div className="form">
           <form onSubmit={handleSubmit}>
+             <div className="input-container">
+              <label>User Name </label>
+              <input type="text" name="username" required />
+              {renderErrorMessage("uname")}
+            </div>
+            <div className="input-container">
+              <label>Password </label>
+              <input type="pass" name="password" required />
+              {renderErrorMessage("pass")}
+            </div>
             <div className="input-container">
               <label>First Name </label>
               <input type="text" name="firstname" required />
