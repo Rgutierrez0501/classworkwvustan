@@ -74,21 +74,14 @@ app.get('/roleById/:roleid',(req,res)=>{
 
 //http://localhost:3001/registeruser
 app.post('/registeruser',(req,res)=>{
-    let userObject = req.body;
-    poolconn.query(,,(error,results)=>{
+    let {id,firstname,lastname,email,mobile,address} = req.body;
+    poolconn.query('INSERT INTO user_details (id,firstname,lastname,email,mobile,address) VALUES ($1, $2,$3,$4,$5,$6)', [id,firstname,lastname,email,mobile,address], (error, results) => {
         if(error){
             throw error;
         }
-        res.status(200).json(results.rows);
+        res.status(201).send(`User added with ID: ${id}`);
     })
 });
-/**
-app.post('/registeruser',userObject).then((res) => {
-    console.log(res.data)
-    res.status(200).json('User registered successfully');
-}).catch((error) => {
-    console.log(error)
-}); */
 
 
 
