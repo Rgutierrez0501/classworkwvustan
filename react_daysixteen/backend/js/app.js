@@ -61,6 +61,16 @@ app.get('/userByName/:uName',(req,res)=>{
         res.status(200).json(results.rows);
     })
 });
+//http://localhost:3001/roleById/1
+app.get('/roleById/:roleid',(req,res)=>{
+    const role_id = req.params.roleid;
+    poolconn.query('SELECT * FROM role WHERE roleid=$1',[role_id],(error,results)=>{
+        if(error){
+            throw error;
+        }
+        res.status(200).json(results.rows);
+    })
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

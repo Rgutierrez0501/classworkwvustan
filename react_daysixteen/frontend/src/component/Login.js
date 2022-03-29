@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from "react";
+import React, { useState} from "react";
 import { Link,Outlet } from "react-router-dom";
 import "../../src/styles.css";
 import axios from 'axios';
@@ -14,27 +14,13 @@ function Login() {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState();
-
-  // User Login info
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
-    }
-  ];
+  const [isAdminUser,setIsAdminUser] = useState();
 
   const errors = {
     uname: "invalid username",
     pass: "invalid password"
   };
-
-
-
-  /**
+   /**
    * 
    * Add function to handle form submit
         To achieve login functionality, we need to create a JS function to handle form submission with validations. 
@@ -48,6 +34,7 @@ function Login() {
 
     var { uname, pass } = document.forms[0];
     let userData = null;
+    let roleData = null;
     // Find user login info
    // const userData = database.find((user) => user.username === uname.value);
 
@@ -56,14 +43,27 @@ function Login() {
 
   axios.get(baseURL).then((response) => {
         userData=response.data[0];
-    
+        console.log(userData);
     // Compare user info
     if (userData) {
       if (userData.password !== pass.value) {
         // Invalid password
         setErrorMessages({ name: "pass", message: errors.pass });
       } else {
-        setIsSubmitted(true);
+          console.log('Checking role');
+          //Check role
+          axios.get(`http://localhost:3001/roleById/${userData.roleid}`).then((res)=>{
+                roleData= res.data[0];
+                if(roleData){
+                    if(roleData.roletype == 'admin'){
+                        setIsAdminUser(true);
+                    }
+                }
+                console.log(roleData);
+                
+          })
+         
+          setIsSubmitted(true);
       }
     } else {
       // Username not found
@@ -116,7 +116,9 @@ function Login() {
     <div className="app">
       <div className="login-form">
         <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+        {isSubmitted ? 
+                      (isAdminUser ? <div>Admin user is successfully logged in </div> : <div>User is successfully logged in</div>)  
+        : renderForm}
       </div>
     </div>
   );
