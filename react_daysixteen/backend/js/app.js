@@ -3,7 +3,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3001;
 const poolconn = require('./dbconnection');
+const cors = require('cors');
 
+app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended:true
@@ -27,14 +29,24 @@ app.get('/login/:uName/:passcode',(req,res)=>{
             throw error;
         }
         //logic to validate data from request param with data from DB
+        /**
         console.log(results.rows[0].password)
         if((results.rows[0].password == pass_word ) ){
             res.status(200).json("Login Successful");
         }else{
             res.status(401).json("Username or Password doesn't match");
-        }
+        }*/
+
         
        // res.status(200).json(results.rows);
+       if(results.rowCount>0){
+           //username found
+        res.status(200).json(results.rows);
+       }else{
+        res.status(200).json(null);
+       }
+
+
     })
 });
 

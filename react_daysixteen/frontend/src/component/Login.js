@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import { Link,Outlet } from "react-router-dom";
 import "../../src/styles.css";
 import axios from 'axios';
+
 function Login() {
     /**
      * 1. Declare React States for error messages and isSubmitted
@@ -31,6 +32,8 @@ function Login() {
     pass: "invalid password"
   };
 
+
+
   /**
    * 
    * Add function to handle form submit
@@ -39,22 +42,21 @@ function Login() {
         avoids default form submit action which includes reloading of the page.} event 
    */
   const handleSubmit = (event) => {
+    
     //Prevent page reload
     event.preventDefault();
 
     var { uname, pass } = document.forms[0];
-
+    let userData = null;
     // Find user login info
    // const userData = database.find((user) => user.username === uname.value);
-  // const userData;
-  console.log('Results before call ------'+uname+'-----'+pass);
 
-    const userData =
-   axios.get("http://localhost:3001/userByName/:uName",
-          { params: {uName: uname}}
-      )
-    console.log("Results after call ------",userData.data)
+  const baseURL =`http://localhost:3001/userByName/${uname.value}`;
+  console.log('Results before call ------'+uname.value+'-----'+pass.value);
 
+  axios.get(baseURL).then((response) => {
+        userData=response.data[0];
+    
     // Compare user info
     if (userData) {
       if (userData.password !== pass.value) {
@@ -67,7 +69,9 @@ function Login() {
       // Username not found
       setErrorMessages({ name: "uname", message: errors.uname });
     }
+    });
   };
+  
 
   // Generate JSX code for error message
   //The renderErrorMessage function returns JSX code for displaying the error message associated with the field name.
