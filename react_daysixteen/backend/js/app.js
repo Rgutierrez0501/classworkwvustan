@@ -72,6 +72,26 @@ app.get('/roleById/:roleid',(req,res)=>{
     })
 });
 
+//http://localhost:3001/registeruser
+app.post('/registeruser',(req,res)=>{
+    let userObject = req.body;
+    poolconn.query(,,(error,results)=>{
+        if(error){
+            throw error;
+        }
+        res.status(200).json(results.rows);
+    })
+});
+/**
+app.post('/registeruser',userObject).then((res) => {
+    console.log(res.data)
+    res.status(200).json('User registered successfully');
+}).catch((error) => {
+    console.log(error)
+}); */
+
+
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

@@ -12,6 +12,7 @@ function Home(){
             <ul>
                 <li>
                     <Link to="/login"> Login</Link>
+                    <Link to="/userregistration"> UserRegistration</Link>
                 </li>
                
             </ul>
