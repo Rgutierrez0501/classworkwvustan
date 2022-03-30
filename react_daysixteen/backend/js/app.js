@@ -91,8 +91,39 @@ app.post('/registeruser',(req,res)=>{
     });   
 })
 
+//http://localhost:3001/deleteuser/3
+app.delete('/deleteuser/:userid',(req,res)=>{
+    console.log(req.params.userid)
+    let userid = req.params.userid;
+    //delete from users where userid=$1
+    poolconn.query('DELETE FROM users WHERE userid=$1',[userid],(error,results)=>{
+        if(error){
+            throw error;
+        }
+        res.status(200).send(`User id: ${userid} deleted`);
+    });
+});
 
-
+/**
+ * POST is used to send data to a server to create / update a resource
+ * PUT is used to send data to a server to create / update a resource
+ * PUT requests are idempotent, means calling the same PUT request multiple times will
+ * always produce the same result.
+ * 
+ * In constrast,calling the POST request repeatedly have side effects of creating the resource
+ * multiple times 
+ */
+//http://localhost:3001/updateuserdetails
+app.put('/updateuserdetails',(req,res)=>{
+    let {userid,mobile,address} = req.body;
+   //INSERT or UPDATE SQL statements we can use to create or update record in table respectively
+    poolconn.query('UPDATE user_details SET mobile=$1,address=$2 WHERE id=$3',[mobile,address,userid],(error,results)=>{
+        if(error){
+            throw error;
+        }
+        res.status(200).send(`User id: ${userid} details are updated`);
+    });
+});
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

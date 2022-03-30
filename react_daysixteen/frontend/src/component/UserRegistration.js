@@ -35,7 +35,7 @@ function UserRegistration() {
     //TODO -- URL -- http://localhost:3001/registeruser and pass data in request body
     axios.get(`http://localhost:3001/userByName/${username.value}`).then((response) => {
        let  userData=response.data;
-       if(userData){
+       if(!userData){
            setErrorMessages({ name :"username", message: errors.username});
        }else{
         axios.post(`http://localhost:3001/registeruser`,userDetails).then((response)=>{
