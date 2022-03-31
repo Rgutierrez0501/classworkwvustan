@@ -25,7 +25,27 @@ insert into employees values(1703,'Jones','Smith','x19200','sjones@gmail.com','S
 	Insert data into mapped columns  or not all columns of employees table
 */
 insert into employees(empid,firstname,lastname,email,designation) values (1704,'Graham','Latham','graham@abc.com','executive');
+insert into employees(empid,firstname,lastname,email,designation) values (1704,'Graham','Latham','graham@abc.com','executive');
+
+/**
+	delete a specific row or record from employees table
+*/
+delete from employees where empid = 1704;
+insert into employees(empid,firstname,lastname,email,designation) values (1704,'Graham','Latham','graham@abc.com','executive');
 /**
 	Add primary key to employees
 */
 alter table employees add primary key(empid);
+
+/**
+	Below statement will give you error :---
+	ERROR:  duplicate key value violates unique constraint "employees_pkey"
+DETAIL:  Key (empid)=(1704) already exists.
+**/
+insert into employees(empid,firstname,lastname,email,designation) values (1704,'Graham','Latham','graham@abc.com','executive');
+
+
+/**
+	Auto increment the empid 
+**/
+alter table employees add constraint serial primary key(empid);
