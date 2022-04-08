@@ -16,7 +16,13 @@ public class EmployeeMain {
 		Employee emp = new Employee();
 		System.out.println(Employee.valueOfPI);
 		System.out.println(emp.valueOfPI);
-
+		
+		int number;
+		number =15;
+		System.out.println("Value of number ---"+number);
+		number ='X';
+		System.out.println("Value of number ---"+number);
+		//number = 20.50;
 	}
 	
 	public void printValueOfPI() {
