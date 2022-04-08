@@ -11,6 +11,7 @@ public class SwitchExample {
 		System.out.println(" - for Subtraction ");
 		System.out.println(" * for Multiplication ");
 		System.out.println(" / for Division ");
+		
 		Scanner sc = new Scanner(System.in);
 		String choice = sc.next();
 
