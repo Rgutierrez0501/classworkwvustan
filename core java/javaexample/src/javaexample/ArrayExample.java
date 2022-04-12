@@ -9,6 +9,7 @@ public class ArrayExample {
 		list[0]=5;
 		list[1]=4;
 		list[2]=6;
+		//list[3]="hiu";
 		
 		float numbers[];
 		numbers = new float[5];
@@ -54,6 +55,7 @@ public class ArrayExample {
 		}
 		
 		//for each loop --- using this loop we can iterate through collection of objects
+		//for each student in arrays of student
 		for(Student stud:arraysOfStudent) {
 			System.out.println(stud.getStudentName());
 		}
