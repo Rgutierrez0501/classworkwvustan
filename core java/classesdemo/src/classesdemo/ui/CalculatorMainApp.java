@@ -19,8 +19,12 @@ public class CalculatorMainApp {
 			
 		
 		Calculator calcul = new Calculator(11, 10);//Parameterized constructor method is used to create an object
-		Integer mulResult = calc.multiplication(calcul.getNum1(), calcul.getNum2());
+		Integer mulResult = calcul.multiplication(calcul.getNum1(), calcul.getNum2());
 		System.out.println("Multiplication of two numbers "+calcul.getNum1()+" and "+calcul.getNum2()+" is "+mulResult);
+
+		Calculator calcula = new Calculator(21, 10);//Parameterized constructor method is used to create an object
+		Integer divResult = calcula.division(calcula.getNum1(), calcula.getNum2());
+		System.out.println("Division of two numbers "+calcula.getNum1()+" and "+calcula.getNum2()+" is "+divResult);
 
 	}
 

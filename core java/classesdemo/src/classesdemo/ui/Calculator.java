@@ -1,7 +1,7 @@
 package classesdemo.ui;
 
 public class Calculator {
-	
+
 	private Integer num1;
 	private Integer num2;
 
@@ -31,31 +31,32 @@ public class Calculator {
 	}
 
 	/**
-	 * Add two numbers of integer type
-	 * Subtract two numbers of integer type
-	 * Multiply two numbers of integer type
-	 * Divide two numbers of integer type
+	 * Add two numbers of integer type Subtract two numbers of integer type Multiply
+	 * two numbers of integer type Divide two numbers of integer type
 	 */
-	public Integer addition(Integer numberOne,Integer numberTwo) {
-		return numberOne+numberTwo;
-	}
-	
-	public Integer subtraction(Integer numberOne,Integer numberTwo) {
-		return numberOne-numberTwo;
-	}
-	
-	public Integer multiplication(Integer numberOne,Integer numberTwo) {
-		return numberOne*numberTwo;
+	public Integer addition(Integer numberOne, Integer numberTwo) {
+		return numberOne + numberTwo;
 	}
 
-	public Integer division(Integer numberOne,Integer numberTwo) {
-		return numberOne/numberTwo;
+	public Integer subtraction(Integer numberOne, Integer numberTwo) {
+		return numberOne - numberTwo;
+	}
+
+	public Integer multiplication(Integer numberOne, Integer numberTwo) {
+		return numberOne * numberTwo;
+	}
+
+	public Integer division(Integer numberOne, Integer numberTwo) {
+		return numberOne / numberTwo; // it will return quotient
+	}
+
+	public Integer modulusDivision(Integer numberOne, Integer numberTwo) {
+		return numberOne % numberTwo; // modulus division it will return remainder
 	}
 
 	@Override
 	public String toString() {
 		return "Calculator [num1=" + num1 + ", num2=" + num2 + "]";
 	}
-	
-	
+
 }
