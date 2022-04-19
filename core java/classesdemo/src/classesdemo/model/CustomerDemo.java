@@ -9,6 +9,11 @@ public class CustomerDemo {
 		System.out.println(result);
 		String message = customer.display();
 		System.out.println(message);
+		
+		int c ='A';
+		System.out.println(c);
+		int index='0';
+		long wholeNumber = 123213412l;
 	}
 
 }
