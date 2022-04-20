@@ -6,7 +6,8 @@ import java.util.List;
 import hrmsapp.model.Employee;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
-	List<Employee> listOfEmp = new ArrayList<Employee>();
+	public static List<Employee> listOfEmp = new ArrayList<Employee>();
+	
 	public void addEmployee(Employee employee) {
 		//Call the method or execute query to save employee object in DB
 		listOfEmp.add(employee);	
@@ -35,6 +36,17 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	public void updateEmployee(Employee employee) {
 		//Logic to update employee in DB 
 
+	}
+
+	public List<Employee> getEmployeeDetailsByCity(String city) {
+		List<Employee> empListByCity = new ArrayList<Employee>();
+		for(Employee emp:listOfEmp) {
+			if((emp.getAddress().getCity()).equals(city)) {
+				empListByCity.add(emp);
+				//return empListByCity;
+			}
+		}
+		return empListByCity;
 	}
 
 }

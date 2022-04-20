@@ -37,4 +37,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeDAO.updateEmployee(employee);
 	}
 
+	public List<Employee> getEmployeeDetailsByCity(String city) {
+		EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+		List<Employee> empList = employeeDAO.getEmployeeDetailsByCity(city);
+		return empList;
+	}
+
 }
