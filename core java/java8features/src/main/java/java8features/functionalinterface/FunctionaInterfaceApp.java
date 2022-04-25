@@ -1,6 +1,9 @@
 package java8features.functionalinterface;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -65,6 +68,22 @@ public class FunctionaInterfaceApp {
 		Function<Integer,Integer> composeExample = addOne.compose(multiplyByTwo); 
 		
 		System.out.println(composeExample.apply(10));
+		
+		System.out.println("**********************************");
+		//Collection of data and usage of andThen()
+		List<Integer> salaries = Arrays.asList(15000,10000,5000,21000,20000,16000);
+		for(Integer salary:salaries) {
+			System.out.println(andThenExample.apply(salary));
+		}
+		
+		System.out.println(orderList);
+		System.out.println("********************Reverse sorting of order on the basis of amount*************************");
+		Collections.sort(orderList,	Comparator.comparing(Order::getAmount).reversed());
+		//Chaining Comparator methods
+		//Collections.sort(orderList,Comparator.comparing(Order::getAmount).thenComparing(Order::getCurrency));
+		orderList.forEach(System.out::println);
+		
+		betterWayToEvaluatePredicate(orderList,o->o.getAmount()>20000);
 	}
 	
 	static void evaluate(List<Order> orderList,Consumer<Order> consumer) {
@@ -83,5 +102,10 @@ public class FunctionaInterfaceApp {
 			}
 		}
 		return filteredOrder;
+	}
+	
+	static void betterWayToEvaluatePredicate(List<Order> orders,Predicate<Order> predicate) {
+		orders.stream().filter(predicate).forEach(System.out::println);
+
 	}
 }
