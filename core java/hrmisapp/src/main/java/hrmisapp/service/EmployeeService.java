@@ -7,5 +7,5 @@ import hrmisapp.data.Employee;
 public interface EmployeeService {
 	
 	public List<Employee> getEmployeeWithJobTitle(String jobTitle);
-
+	public List<Employee> getAllEmployeesSortBySalary();
 }

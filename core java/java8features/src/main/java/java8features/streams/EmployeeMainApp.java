@@ -1,6 +1,7 @@
 package java8features.streams;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class EmployeeMainApp {
@@ -26,6 +27,23 @@ public class EmployeeMainApp {
 		empList.add(empEight);
 		
 		System.out.println(empList.stream());
+		
+		empList.stream().filter(e->(e.getAge()>30)).forEach(System.out::println);
+		System.out.println("********************************************");
+		empList.stream().filter(e->(e.getAge()>20)).limit(4).forEach(System.out::println);
+		System.out.println("********************************************");
+		empList.stream().filter(e->(e.getAge()>20)).skip(4).forEach(System.out::println);
+		
+		System.out.println("****************Sorting streams*****************");
+		empList.stream().filter(e->(e.getAge()>25)).sorted(Comparator.comparing(Employee::getAge)).forEach(System.out::println);
+		
+		System.out.println("************************************************");
+		empList.stream().filter(e->e.getJobTitle().equals("Senior Manager")).forEach(System.out::println);
+		
+		System.out.println("************************************************");
+		boolean  allAssociates =  empList.stream().allMatch(o->o.getJobTitle().equals("Associate"));
+        System.out.println(allAssociates);
+	
 	}
 
 }

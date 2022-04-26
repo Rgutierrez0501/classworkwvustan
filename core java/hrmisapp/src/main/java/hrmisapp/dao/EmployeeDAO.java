@@ -6,4 +6,6 @@ import hrmisapp.data.Employee;
 
 public interface EmployeeDAO {
 	public List<Employee> getEmployeeWithJobTitle(String jobTitle);
+	
+	public List<Employee> getAllEmployees();
 }

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +47,37 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		employee.setEmpName(resultSet.getString("empname"));
 		employee.setJobTitle(resultSet.getString("jobtitle"));
 		employee.setSalary(resultSet.getDouble("salary"));
+	}
+
+	@Override
+	public List<Employee> getAllEmployees() {
+		Employee employee;
+		List<Employee> employeeList = new ArrayList<>();
+		try (Connection connection = DriverManager.getConnection(
+				"jdbc:postgresql://127.0.0.1:5432/test", "postgres", "password");
+			 Statement statement = connection.createStatement();) {
+			ResultSet resultSet = statement.executeQuery(QueryMapper.GET_ALL_EMPLOYEES);
+
+			while (resultSet.next()) {
+				employee = new Employee();
+				populateEmployee(employee, resultSet);
+				employeeList.add(employee);
+			}
+			if (employeeList.size() > 0) {
+			
+				return employeeList;
+			} else {
+				throw new Exception("Customer table is empty");
+			}
+			//return;
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return employeeList;
 	}
 
 }

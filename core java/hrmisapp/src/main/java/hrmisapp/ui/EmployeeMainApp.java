@@ -12,6 +12,8 @@ public class EmployeeMainApp {
 		EmployeeService empService= new EmployeeServiceImpl();
 		List<Employee> associates= empService.getEmployeeWithJobTitle("Associate");
 		associates.forEach(System.out::println);
+		System.out.println("*************************************************");
+		empService.getAllEmployeesSortBySalary().forEach(System.out::println);
 	}
 
 }
