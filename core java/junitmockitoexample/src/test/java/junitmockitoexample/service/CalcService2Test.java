@@ -22,7 +22,8 @@ public class CalcService2Test {
 	public void setup() {
 		// initMocls() method is called to initialize objects annotated with @Mock,
 		// @Spy,@Captor or @InjectMocks
-		MockitoAnnotations.initMocks(this);
+			//MockitoAnnotations.initMocks(this);
+			MockitoAnnotations.openMocks(this);
 		
 
 	}
@@ -54,7 +55,7 @@ public class CalcService2Test {
 
 		when(subService.subtract(num1, num2)).thenReturn(expected);
 
-		int actual = calcService.calc(num1, num2);
+		int actual = calcService.sub(num1, num2);
 
 		assertEquals(expected, actual);
 	}
