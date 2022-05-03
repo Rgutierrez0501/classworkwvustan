@@ -6,4 +6,5 @@ import com.revature.springmvcexample.model.Employee;
 
 public interface EmployeeDAO {
 	public List<Employee> getEmployees();
+	public List<Employee> getAllEmployees();
 }

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.revature.springmvcexample.model.Employee;
@@ -30,4 +31,19 @@ public class EmployeeController {
 		ModelAndView modelAndView = new ModelAndView("employee", model);
 		return modelAndView;
 	}
+	
+	/**
+	 * 
+	 * We are explicitly declaring that getAllEmployees method will handle the http
+	 * get request from url http://localhost:8080/allemployees
+	 */
+	@RequestMapping(value = "/allemployees", method = RequestMethod.GET)
+	public ModelAndView getAllEmployees() {
+		Map employeeModel = new HashMap();
+		List<Employee> empList = employeeService.getAllEmployees();
+		employeeModel.put("empList", empList);
+		ModelAndView modelAndView = new ModelAndView("allemployee", employeeModel);
+		return modelAndView;
+	}
+
 }

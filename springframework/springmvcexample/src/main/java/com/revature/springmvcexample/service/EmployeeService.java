@@ -7,5 +7,7 @@ import com.revature.springmvcexample.model.Employee;
 public interface EmployeeService {
 	
 	public List<Employee> getEmployees();
+	
+	public List<Employee> getAllEmployees();
 
 }

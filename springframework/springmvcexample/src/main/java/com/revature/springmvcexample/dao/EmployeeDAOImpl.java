@@ -33,4 +33,28 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return empList;
 	}
 
+	@Override
+	public List<Employee> getAllEmployees() {
+		if(empList.size() ==0) {
+		
+		Employee emp = new Employee();
+		emp.setEmpId(18);
+		emp.setEmpName("Piyusha");
+
+		Employee emp1 = new Employee();
+		emp1.setEmpId(19);
+		emp1.setEmpName("Supratim");
+
+		Employee emp2 = new Employee();
+		emp2.setEmpId(20);
+		emp2.setEmpName("Joy Singh");
+
+		empList.add(emp);
+		empList.add(emp1);
+		empList.add(emp2);
+		
+		}
+		return empList;
+	}
+
 }
