@@ -33,4 +33,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return empoyeeDAO.getAllEmployees();
 	}
 
+	@Override
+	public Boolean addEmployee(Employee employee) {
+		return empoyeeDAO.addEmployee(employee);
+	}
+
 }

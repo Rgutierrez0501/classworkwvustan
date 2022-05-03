@@ -9,5 +9,7 @@ public interface EmployeeService {
 	public List<Employee> getEmployees();
 	
 	public List<Employee> getAllEmployees();
+	
+	public Boolean addEmployee(Employee employee);
 
 }
