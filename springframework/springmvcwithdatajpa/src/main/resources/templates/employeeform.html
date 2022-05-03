@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Form</title>
+</head>
+<body>
+<!-- we use *  to POST data and  $ to GET data i.e. *{varName} & i${varName}  -->
+	<form action="#" th:action="@{/saveemployee}" th:object="${employee}" method="post">
+		<p>Emp Name : <input type="text" th:field="*{empName}"/></p>
+		<p><input type="submit" value="Submit"/></p>
+	</form>
+	
+	<form action="#" th:action="@{/deleteemployee}" th:object="${employee}" method="delete">
+		<p>Emp Id : <input type="text" th:field="*{empId}"/></p>
+		<p>Emp Name : <input type="text" th:field="*{empName}"/></p>
+		<p><input type="submit" value="Delete"/></p>
+	</form>
+</body>
+</html>

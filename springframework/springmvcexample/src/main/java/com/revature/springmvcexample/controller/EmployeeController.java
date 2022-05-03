@@ -101,28 +101,28 @@ public class EmployeeController {
 		}
 		return modelAndView;
 	}
-	
+
 	// URL- http://localhost:8080/employee
-		@GetMapping("/employee")
-		public ModelAndView getEmployeeForm(@ModelAttribute Employee employee) {
-			ModelAndView modelAndView = new ModelAndView("addemployee");
-			return modelAndView;
+	@GetMapping("/employee")
+	public ModelAndView getEmployeeForm(@ModelAttribute Employee employee) {
+		ModelAndView modelAndView = new ModelAndView("addemployee");
+		return modelAndView;
+	}
+
+	// RequestMapping(value="/saveEmployee",method=RequestMethod.POST)
+	@PostMapping("/saveEmployee")
+	public ModelAndView saveEmployee(@ModelAttribute Employee employee) {
+		Boolean isEmployeeAdded = employeeService.addEmployee(employee);
+		ModelAndView modelAndView;
+		// Model in Spring Web MVC is a map
+		Map messageModel = new HashMap();
+		if (isEmployeeAdded) {
+			messageModel.put("emplData", employee);
+			modelAndView = new ModelAndView("successWithData", messageModel);
+		} else {
+			messageModel.put("errormsg", "Unable to add employee");
+			modelAndView = new ModelAndView("errorMsg", messageModel);
 		}
-		
-		//RequestMapping(value="/saveEmployee",method=RequestMethod.POST)
-		@PostMapping("/saveEmployee")
-		public ModelAndView saveEmployee(@ModelAttribute Employee employee){
-			Boolean isEmployeeAdded = employeeService.addEmployee(employee);
-			ModelAndView modelAndView;
-			// Model in Spring Web MVC is a map
-			Map messageModel = new HashMap();
-			if (isEmployeeAdded) {
-				messageModel.put("emplData", employee);
-				modelAndView = new ModelAndView("successWithData", messageModel);
-			} else {
-				messageModel.put("errormsg", "Unable to add employee");
-				modelAndView = new ModelAndView("errorMsg", messageModel);
-			}
-			return modelAndView;
-		}
+		return modelAndView;
+	}
 }
