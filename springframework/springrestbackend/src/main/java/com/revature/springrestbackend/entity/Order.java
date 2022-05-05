@@ -1,5 +1,5 @@
 package com.revature.springrestbackend.entity;
-
+/**
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,4 +47,4 @@ public class Order {
 		return "Order [id=" + id + ", customer=" + customer + "]";
 	}
 
-}
+}**/
